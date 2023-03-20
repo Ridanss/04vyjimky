@@ -19,6 +19,7 @@ namespace p03
 
         private void buttonExecute_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             try
             {
                 int n = int.Parse(textBox1.Text);
@@ -41,7 +42,7 @@ namespace p03
                                 pole[0] *= p;
                             }
                         }
-                        MessageBox.Show(string.Format($"Součin {pole[0]}"));
+                        MessageBox.Show(string.Format($"Mocnina je {pole[0]}"));
                     }
                     catch (IndexOutOfRangeException ex)
                     {

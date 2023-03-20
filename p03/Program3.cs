@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace p03
 {
-    internal static class Progra3
+    internal static class Program3
     {
         /// <summary>
         /// Hlavní vstupní bod aplikace.
