@@ -30,24 +30,16 @@ namespace p04
                 {
                     for (int i = 1; i < Math.Abs(n); i++)
                     {
-                        checked
-                        {
-                            a *= z;
-                        }
-
+                        a *= z;
                     }
-
-                    MessageBox.Show(string.Format($"Mocnina je {(n < 0 ? "1/" : "")}{a}"));
+                    if (a == double.PositiveInfinity) MessageBox.Show("Operace skončila přetečením");
+                    else MessageBox.Show(string.Format($"Mocnina je {(n < 0 ? "1/" : "")}{a}"));
 
                 }
 
             }
 
             catch (FormatException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (OverflowException ex)
             {
                 MessageBox.Show(ex.Message);
             }
