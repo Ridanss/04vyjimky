@@ -26,7 +26,7 @@ namespace p01
                 {
                     int souc = checked(a + b);
                     int roz = a - b;
-                    int soucin = a * b;
+                    int soucin = checked(a * b);
                     int podi = a / b;
                     MessageBox.Show(string.Format($"součet: {souc}\nrozdíl: {roz}\nsoučin: {soucin}\npodíl: {podi}"));
                 }
