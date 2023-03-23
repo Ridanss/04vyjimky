@@ -22,14 +22,7 @@ namespace p05
         {
             int[] ints = new int[2];
             string[] strings = new string[2];
-            if(PlatnostRc(ints, strings))
-            {
-                MessageBox.Show("Rodné číslo je platné");
-            }
-            else
-            {
-                MessageBox.Show("Rodné číslo je neplatné");
-            }
+            PlatnostRc(ints, strings);
         }
 
         public bool PlatnostRc(int[] ints, string[] strings)
@@ -37,23 +30,20 @@ namespace p05
             try
             {
                 strings = textBox1.Text.Split('/');
-                if (strings[0].Length == 6 && strings[1].Length == 4)
-                {
-                    ints[0] = Int32.Parse(strings[0]);
-                    ints[1] = Int32.Parse(strings[1]);
+                if (strings[0].Length != 6 || strings[1].Length != 4) throw new FormatException();
 
-                    if ((ints[0] + ints[1]) % 11 == 0)
-                    {
-                        int rokc = Int32.Parse(strings[0].Substring(0, 2));
-                        int mesc = Int32.Parse(strings[0].Substring(2, 2));
-                        int denc = Int32.Parse(strings[0].Substring(4, 2));
-                        if (rokc <= DateTime.Today.Year) rokc += 2000;
-                        else rokc += 1900;
-                        if (mesc > 50) mesc -= 50;
-                        DateTime naroz = new DateTime(rokc, mesc, denc);
-                        if (naroz != null) return true;
-                    }
-                }
+                ints[0] = Int32.Parse(strings[0]);
+                ints[1] = Int32.Parse(strings[1]);
+
+                if ((ints[0] + ints[1]) % 11 != 0) throw new FormatException();
+                int rokc = Int32.Parse(strings[0].Substring(0, 2));
+                int mesc = Int32.Parse(strings[0].Substring(2, 2));
+                int denc = Int32.Parse(strings[0].Substring(4, 2));
+                if ((rokc + 2000) <= DateTime.Today.Year) rokc += 2000;
+                else rokc += 1900;
+                if (mesc > 50) mesc -= 50;
+                DateTime naroz = new DateTime(rokc, mesc, denc);
+                if (naroz != null) return true;
                 return false;
             }
             catch (FormatException ex)
