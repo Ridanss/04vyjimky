@@ -1,6 +1,6 @@
 ﻿namespace p07
 {
-    partial class Form1
+    partial class Form7
     {
         /// <summary>
         /// Vyžaduje se proměnná návrháře.
