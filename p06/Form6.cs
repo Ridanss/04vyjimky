@@ -43,5 +43,26 @@ namespace p06
                 }
             }
         }
+
+        private void buttonNasob_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            for (int i = 0; i < listBox1.Items.Count; i++)
+            {
+                int puv = int.Parse(listBox1.Items[i].ToString());
+                try
+                {
+                    checked
+                    {
+                        listBox2.Items.Add(puv * 2);
+                    }
+                }
+                catch (OverflowException)
+                {
+                    listBox2.Items.Add(puv);
+                }
+            }
+
+        }
     }
 }

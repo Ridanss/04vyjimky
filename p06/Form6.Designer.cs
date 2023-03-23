@@ -78,6 +78,7 @@
             this.buttonNasob.TabIndex = 4;
             this.buttonNasob.Text = "zadat";
             this.buttonNasob.UseVisualStyleBackColor = true;
+            this.buttonNasob.Click += new System.EventHandler(this.buttonNasob_Click);
             // 
             // Form6
             // 
